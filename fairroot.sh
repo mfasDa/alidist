@@ -1,6 +1,6 @@
 package: FairRoot
 version: "%(short_hash)s"
-tag: "6af7e848585ce720e96a01d5565b1bd5e3884430"
+tag: "dev"
 source: https://github.com/FairRootGroup/FairRoot
 requires:
   - generators
@@ -51,6 +51,8 @@ cmake $SOURCEDIR                                                                
       -DDISABLE_GO=ON                                                                       \
       -DBUILD_EXAMPLES=OFF                                                                  \
       ${GEANT4_ROOT:+-DGeant4_DIR=$GEANT4_ROOT}                                             \
+      ${GEANT4_VMC_ROOT:+-DGEANT4_VMC_ROOT=$GEANT4_VMC_ROOT}                                \
+      ${VGM_ROOT:+-DVGM_ROOT=$VGM_ROOT}                                \
       -DFAIRROOT_MODULAR_BUILD=ON                                                           \
       ${DDS_ROOT:+-DDDS_PATH=$DDS_ROOT}                                                     \
       ${BOOST_ROOT:+-DBOOST_ROOT=$BOOST_ROOT}                                               \

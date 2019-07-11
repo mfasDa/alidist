@@ -31,7 +31,7 @@ export MPFR_INC_DIR="${MPFR_ROOT}/include"
 export GMP_LIB_DIR="${GMP_ROOT}/lib"
 export GMP_INC_DIR="${GMP_ROOT}/include"
 
-cmake . \
+cmake $SOURCEDIR \
       -DCMAKE_INSTALL_PREFIX:PATH="${INSTALLROOT}" \
       -DCMAKE_SKIP_RPATH:BOOL=YES \
       -DWITH_BLAS:BOOL=OFF \

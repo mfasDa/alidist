@@ -1,8 +1,9 @@
 package: defaults-user
 version: v1
 env:
-  CXXFLAGS: "-fPIC -g -O2 -std=c++11"
+  CXXFLAGS: "-fPIC -g -O2 -std=c++14"
   CFLAGS: "-fPIC -g -O2"
+  CXXSTD: "14"
   CMAKE_BUILD_TYPE: "RELWITHDEBINFO"
 disable:
   - DPMJET
@@ -12,6 +13,9 @@ disable:
   - RooUnfold
   - treelite
 overrides:
+  boost:
+    tag: v1.69.0
+    source: https://github.com/mfasDa/boost.git
   AliRoot:
     version: "%(tag_basename)s"
     tag: v5-09-53

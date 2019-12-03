@@ -3,8 +3,9 @@ version: v1
 disable:
   - arrow
 env:
-  CXXFLAGS: "-fPIC -g -O2 -std=c++11"
+  CXXFLAGS: "-fPIC -g -O2 -std=c++17"
   CFLAGS: "-fPIC -g -O2"
+  CXXSTD: "17"
   CMAKE_BUILD_TYPE: "RELWITHDEBINFO"
 overrides:
   XRootD:

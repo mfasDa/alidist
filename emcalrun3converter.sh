@@ -28,7 +28,13 @@ incremental_recipe: |
 #!/bin/bash -ex
 
 case $ARCHITECTURE in
-  osx*) [[ ! $BOOST_ROOT ]] && BOOST_ROOT=$(brew --prefix boost);;
+  osx*) [[ ! $BOOST_ROOT ]] && BOOST_ROOT=$(brew --prefix boost)
+        [[ ! $LIBUV_ROOT ]] && LIBUV_ROOT=$(brew --prefix libuv)
+        SONAME=dylib
+        ;;
+     *) 
+        SONAME=so
+  ;;
 esac
 
 # For the PR checkers (which sets ALIBUILD_O2_TESTS)
@@ -50,6 +56,8 @@ cmake $SOURCEDIR                                              \
       -DFairRoot_DIR=$FAIRROOT_ROOT                           \
       -DMS_GSL_INCLUDE_DIR=$MS_GSL_ROOT/include               \
       -DARROW_HOME=$ARROW_ROOT                                \
+      ${LIBUV_ROOT:+-DLibUV_INCLUDE_DIR=$LIBUV_ROOT/include}             \
+      ${LIBUV_ROOT:+-DLibUV_LIBRARY=$LIBUV_ROOT/lib/libuv.$SONAME}       \
       ${CXXSTD:+-DCMAKE_CXX_STANDARD=$CXXSTD}                 \
       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 

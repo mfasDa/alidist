@@ -1,6 +1,6 @@
 package: legotrain_helpers
 version: "%(tag_basename)s"
-tag: "v1.0.0"
+tag: "v1.0.2"
 source: https://github.com/mfasDa/legotrain_helpers
 ---
 #!/bin/bash -e

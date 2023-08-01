@@ -1,5 +1,5 @@
 package: root6tools
-version: "v1-1"
+version: "v1-2.1"
 tag: master
 requires:
   - ROOT
